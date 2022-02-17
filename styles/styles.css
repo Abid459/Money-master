@@ -4,38 +4,29 @@
     margin: 0;
     box-sizing: border-box;
 }
-
 section {
     color: aliceblue;
     width: 100%;
 
 }
-
 body {
     background-image: linear-gradient(to right, rgb(27, 4, 70), rgb(0, 0, 0));
     /* background: rgb(0, 72, 75); */
 }
-
 img {
     width: 100%;
     border-radius: 5%;
 }
-
-
-
 h3 {
     font-size: 1.6rem;
     margin: 20px 0;
 }
-
 h4 {
     font-size: 1.5rem;
 }
-
 span {
     color: aqua;
 }
-
 button {
     padding: 12px 18px;
     outline: 0;
@@ -46,31 +37,31 @@ button {
     color: white;
     border-radius: 5px;
 }
-
 p {
     font-size: 1.6rem;
 }
-
 /* ===========gloabl css end=========== */
 .warning-display {
     padding: 10px 30px;
-    background: rgb(49, 49, 49);
+    background: rgb(58, 0, 0);
     text-align: center;
     border-radius: 20px;
-    position: absolute;
-    bottom: 200px;
-    display: none;
+    position: fixed;
+    bottom: 50px;
+    z-index: 10;
+    left: 30%;
+    font-size: 1.3rem;
+    color: rgb(255, 255, 255);
+    /* display: none; */
     /* margin-top: 90px; */
     /* margin-top: 30px; */
 }
-
 header h2 {
     text-align: center;
     padding: 30px 0;
     font-size: 2rem;
     color: azure;
 }
-
 .container {
     width: 90%;
     margin: 0 auto;
@@ -81,13 +72,11 @@ header h2 {
     align-items: center;
     /* background: #000; */
 }
-
 .form-item {
     margin: 1rem 0;
     position: relative;
     /* background: rgb(107, 0, 0); */
 }
-
 label {
     font-size: 1.4rem;
     position: absolute;
@@ -95,7 +84,6 @@ label {
     /* text-align: right; */
     top: 15px
 }
-
 .rent-label,
 .food-label {
     /* color: black; */
@@ -113,29 +101,54 @@ input {
     /* flex-direction: row; */
     /* align-self: flex-start; */
 }
-
 .form-wrapper {
     text-align: center;
     /* background: #000; */
     /* width: 400px; */
     /* background: rgb(175, 42, 42); */
 }
-
 .savings {
     margin: 30px 0;
 }
-
 .savings p {
     display: inline-block;
     margin: 0 10px;
     overflow: hidden;
 }
-
 .btn-calc {
     margin-bottom: 20px;
 }
-
 #save {
     /* padding: 0; */
     width: 150px;
 }
+
+
+/* =============responsiveness============== */
+@media only screen and (max-width: 1234px) {
+
+    .container{
+        grid-template: 1fr /1fr;
+    }
+    .btn-save{
+        margin-top: 20px;
+    }
+    #remainig-balance-display{
+        padding-bottom: 50px;
+        /* color: aliceblue; */
+    }
+    label{
+        /* position: absolute */
+        left: -6px;
+        top: 5px;
+    }
+    .rent-label,
+.food-label{
+    left:19px;
+}
+    input{
+        padding: 6px 10px;
+        width: 200px;
+        /* position: absolute; */
+    }
+  }

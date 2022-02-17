@@ -44,7 +44,6 @@ expenseBtn.addEventListener('click', function (e) {
                 targetName = perexpense.parentNode.childNodes[3].id + ", " + targetName;
                 warningDisplay.innerHTML = targetName + "field  should be a positive number";
             }
-            debugger;
             if (!inputValidation(perexpenseAmount)) {
                 return;
             };
@@ -84,9 +83,10 @@ saveBtn.addEventListener('click', function () {
 
 //saving calculation function
 function savingCalculation(savePercent) {
-
+console.log(savePercent)
     if (savePercent < 0) {
-        warningDisplay.innerText = "Percent Value should be positive number";
+        warningDisplay.style.display ='block'
+        warningDisplay.innerHTML = "Percent Value should be positive number";
         return;
     }
     savingAmount = balance * (savePercent / 100);
@@ -126,5 +126,5 @@ function clearWarningDisplay() {
     setTimeout(() => {
         warningDisplay.innerHTML = "";
         warningDisplay.style.display = 'none';
-    }, 4000);
+    }, 5000);
 }
