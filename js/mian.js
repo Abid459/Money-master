@@ -42,7 +42,7 @@ expenseBtn.addEventListener('click', function (e) {
             else {
                 warningDisplay.style.display = 'block'
                 targetName = perexpense.parentNode.childNodes[3].id + ", " + targetName;
-                warningDisplay.innerHTML = targetName + "field  should be a positive number";
+                warningDisplay.innerHTML = "The field of ( " + targetName + " ) should be positive number";
             }
             if (!inputValidation(perexpenseAmount)) {
                 return;
@@ -82,10 +82,11 @@ saveBtn.addEventListener('click', function () {
 
 
 //saving calculation function
-function savingCalculation(savePercent) {
-console.log(savePercent)
+function savingCalculation() {
+    const savePercent = parseFloat(save.value);
+    console.log(savePercent)
     if (savePercent < 0) {
-        warningDisplay.style.display ='block'
+        warningDisplay.style.display = 'block'
         warningDisplay.innerHTML = "Percent Value should be positive number";
         return;
     }
