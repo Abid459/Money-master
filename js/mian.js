@@ -41,7 +41,7 @@ expenseBtn.addEventListener('click', function (e) {
             }
             else {
                 warningDisplay.style.display = 'block'
-                targetName = perexpense.parentNode.childNodes[3].id + ", " + targetName;
+                targetName = perexpense.parentNode.childNodes[3].id + ", " + targetName;//parent from child value
                 warningDisplay.innerHTML = "The field of ( " + targetName + " ) should be positive number";
             }
             if (!inputValidation(perexpenseAmount)) {
@@ -84,17 +84,17 @@ saveBtn.addEventListener('click', function () {
 //saving calculation function
 function savingCalculation() {
     const savePercent = parseFloat(save.value);
+    let incomeAmount = parseFloat(income.value);
     console.log(savePercent)
     if (savePercent < 0) {
         warningDisplay.style.display = 'block'
         warningDisplay.innerHTML = "Percent Value should be positive number";
         return;
     }
-    savingAmount = balance * (savePercent / 100);
+    savingAmount = incomeAmount * (savePercent / 100);
     remainBalance = balance - savingAmount;
     if (!isNaN(savingAmount) && !isNaN(remainBalance)) {
         if (balance >= savingAmount) {
-
             updateDisplay();
         }
         else {
@@ -110,12 +110,11 @@ function updateDisplay() {
     remainigBalanceDisplay.innerText = remainBalance.toFixed(2);
 
 }
-
 //input validation function
 function inputValidation(number) {
     if (isNaN(number)) {
         warningDisplay.style.display = 'block';
-        warningDisplay.innerHTML = `"Input should not be empty or any character or any other expression"  <br/> "other than number from 0 to 9"`;
+        warningDisplay.innerHTML = `"Input should not be empty or any character or any other expression"  <br/> other than "number from 0 to 9"`;
         return false;
     }
     else {
