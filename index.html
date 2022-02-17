@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Manager</title>
+
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="brand">
+            <h3>Budget Manager</h3>
+        </div>
+    </header>
+
+    <!-- ============haeder end=========== -->
+    <main>
+        <section>
+            <div class="container">
+                <div>
+                    <img src="img/banner.jpg" alt="">
+                </div>
+                <div>
+                    <div class="form-wrapper">
+                        <div class="expences-form">
+                            <label for="income">Income</label>
+                            <input type="number" id="income">
+
+                            <h3>Expencess</h3>
+                            <label for="rent">Rent</label>
+                            <input type="number" id="rent">
+
+
+                            <label for="clothes">Clothes</label>
+                            <input type="number" id="clothes">
+
+                            <button>calculate</button>
+
+                        </div>
+                        <h3>Total Expencess: <span id="total-expencess-display">5500</span> </h3>
+                        <h3>Balance: <span id="balance-display">4500</span> </h3>
+
+                        <div class="savings">
+                            <label for="save">Save</label>
+                            <input type="number" name="" id="save">
+                            <p>%</p>
+                            <button>Save</button>
+                        </div>
+                        <h3>Saving Amount <span id="saving-amount-display">2000</span> </h3>
+                        <h3>Remaining Balance <span id="remainig-balance-display"></span> </h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <script src="js/mian.js"></script>
+</body>
+
+</html>
