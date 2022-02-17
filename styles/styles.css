@@ -4,6 +4,9 @@
     margin: 0;
     box-sizing: border-box;
 }
+html{
+    font-size: 13px;
+}
 
 section {
     color: aliceblue;
@@ -21,14 +24,16 @@ img {
 }
 
 h3 {
-    font-size: 1.6rem;
-    margin: 20px 0;
+    font-size: 1.4rem;
+    margin: 15px 0;
 }
 
 h4 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 }
-
+p{
+    /* font-size: .4rem; */
+}
 span {
     color: aqua;
 }
@@ -65,7 +70,7 @@ p {
 
 header h2 {
     text-align: center;
-    padding: 30px 0;
+    padding: 20px 0;
     font-size: 2rem;
     color: azure;
 }
@@ -88,17 +93,17 @@ header h2 {
 label {
     font-size: 1.4rem;
     position: absolute;
-    left: -73px;
-    top: 15px
+    left: -40px;
+    top: 5px
 }
 
 .rent-label,
 .food-label {
-    left: -50px
+    left: -21px
 }
 
 input {
-    padding: 10px;
+    padding: 7px 10px;
     outline: 0;
     border: 0;
     background: rgb(200, 200, 200);
@@ -111,13 +116,14 @@ input {
 }
 
 .savings {
-    margin: 30px 0;
+    margin: 20px 0;
 }
 
 .savings p {
     display: inline-block;
     margin: 0 10px;
     overflow: hidden;
+    font-size: 1.3rem;
 }
 
 .btn-calc {
@@ -125,7 +131,7 @@ input {
 }
 
 #save {
-    width: 150px;
+    width: 130px;
 }
 
 
