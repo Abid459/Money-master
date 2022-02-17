@@ -13,59 +13,98 @@ const remainigBalanceDisplay = document.querySelector('#remainig-balance-display
 const warningDisplay = document.querySelector('.warning-display');
 
 
-
 let totalExpenses = 0;
 let savingAmount = 0;
 let remainBalance = 0;
 let isclicked = false;
 let balance = 0;
 
+
+
+//event handler for epense calculation
 expenseBtn.addEventListener('click', function (e) {
+    setTimeout(() => {
+        warningDisplay.innerHTML = "";
+    }, 4000);
     let targetName = '';
     let totalExpenses = 0;
-    let incomeAmount = income.value;
+    let incomeAmount = parseFloat( income.value);
+    let incomeValited = inputValidation(incomeAmount);
+    if(!incomeValited){
+        return;
+    }
     for (let perexpense of expenses) {
-        let perexpenseAmount = parseFloat(perexpense.value);
-        if(perexpenseAmount >=0){
+        let perexpenseAmount =parseFloat( perexpense.value);
+        if(!inputValidation(perexpenseAmount)){
+            return;
+        };
+        if (perexpenseAmount >= 0) {
             totalExpenses = totalExpenses + perexpenseAmount;
         }
-        else{
-            targetName =perexpense.parentNode.childNodes[3].id  +", " + targetName;
-            warningDisplay.innerHTML = targetName+ "field  should be a positive number";
-            // console.dir(perexpense.parentNode.childNodes[3].id;
+        else {
+            targetName = perexpense.parentNode.childNodes[3].id + ", " + targetName;
+            warningDisplay.innerHTML = targetName + "field  should be a positive number";
         }
     }
-
-    if(incomeAmount>=totalExpenses){
-    balance = incomeAmount - totalExpenses;
-    console.log(totalExpenses);
-    expencesDisplay.innerHTML = totalExpenses;
-    balanceDisplay.innerText = balance;
-    savingCalculation();
-}
-else{
-    warningDisplay.innerText = "Your income can't be less than your expenditure"
-}
+    if (incomeAmount >= totalExpenses) {
+        balance = incomeAmount - totalExpenses;
+        console.log(totalExpenses);
+        expencesDisplay.innerHTML = totalExpenses;
+        balanceDisplay.innerText = balance;
+        savingCalculation();//if income changes need to calculate savings again
+    }
+    else {
+        warningDisplay.innerText = "Your income can't be less than your expenditure"
+    }
 })
 
 
+
+
+
+//event handler for saving button
 saveBtn.addEventListener('click', function () {
+    setTimeout(() => {
+        warningDisplay.innerHTML = "";
+    }, 4000);
     savingCalculation();
 })
 
+
+//saving calculation function
 function savingCalculation() {
     const savePercent = parseFloat(save.value);
-    savingAmount = balance * (savePercent/100);
+    if(savePercent<0){
+        warningDisplay.innerText = "Percent Value should be positive number";
+        return
+    }
+    else if(!inputValidation(savePercent)){
+        return;
+    }
+    savingAmount = balance * (savePercent / 100);
     remainBalance = balance - savingAmount;
-    if(!isNaN(savingAmount) && !isNaN(remainBalance)){
-    updateDisplay();
+    if (!isNaN(savingAmount) && !isNaN(remainBalance)) {
+        updateDisplay();
     }
 
 }
 
 function updateDisplay() {
+    savingAmountDisplay.innerHTML = savingAmount.toFixed(2);
+    remainigBalanceDisplay.innerText = remainBalance.toFixed(2);
     
-        savingAmountDisplay.innerHTML = savingAmount.toFixed( 2 );
-        remainigBalanceDisplay.innerText = remainBalance.toFixed( 2 );
+}
+
+
+//input validation function
+function inputValidation(number) {
+    console.log(number);
     
+    if(isNaN(number)){
+        warningDisplay.innerHTML = `"Input should not be empty or any character or any other expression"  <br/> "other than number from 0 to 9"`;
+        return false;
+    }
+    else{
+        return true;
+    }
 }
