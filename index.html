@@ -13,7 +13,7 @@
 <body>
     <header>
         <div class="brand">
-            <h3>Budget Manager</h3>
+            <h2>Budget Manager</h2>
         </div>
     </header>
 
@@ -27,31 +27,41 @@
                 <div>
                     <div class="form-wrapper">
                         <div class="expences-form">
-                            <label for="income">Income</label>
-                            <input type="number" id="income">
+                            <h3>Income</h3>
+                            <div class="form-item">
+                                <label for="income">Income:</label>
+                                <input type="number" id="income">
+                            </div>
 
                             <h3>Expencess</h3>
-                            <label for="rent">Rent</label>
-                            <input type="number" id="rent">
+                            <div class="form-item">
+                                <label for="food" class="food-label">Food:</label>
+                                <input type="number" id="food">
+                            </div>
+                            <div class="form-item">
+                                <label for="rent" class="rent-label">Rent:</label>
+                                <input type="number" id="rent">
+                            </div>
 
+                            <div class="form-item">
+                                <label for="clothes">Clothes:</label>
+                                <input type="number" id="clothes">
+                            </div>
 
-                            <label for="clothes">Clothes</label>
-                            <input type="number" id="clothes">
-
-                            <button>calculate</button>
+                            <button class="btn-calc">calculate</button>
 
                         </div>
-                        <h3>Total Expencess: <span id="total-expencess-display">5500</span> </h3>
-                        <h3>Balance: <span id="balance-display">4500</span> </h3>
+                        <h4>Total Expencess: <span id="total-expencess-display">5500</span> </h4>
+                        <h4>Balance: <span id="balance-display">4500</span> </h4>
 
                         <div class="savings">
-                            <label for="save">Save</label>
+                            <p class="nn">Save</p>
                             <input type="number" name="" id="save">
-                            <p>%</p>
-                            <button>Save</button>
+                            <p class="nn">%</p>
+                            <button class="btn-save">Save</button>
                         </div>
-                        <h3>Saving Amount <span id="saving-amount-display">2000</span> </h3>
-                        <h3>Remaining Balance <span id="remainig-balance-display"></span> </h3>
+                        <h4>Saving Amount: <span id="saving-amount-display">2000</span> </h4>
+                        <h4>Remaining Balance: <span id="remainig-balance-display"> 1000</span> </h4>
                     </div>
                 </div>
             </div>
