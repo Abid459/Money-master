@@ -23,28 +23,38 @@ let balance = 0;
 
 //event handler for epense calculation
 expenseBtn.addEventListener('click', function (e) {
-    setTimeout(() => {
-        warningDisplay.innerHTML = "";
-    }, 4000);
+    clearWarningDisplay();
     let targetName = '';
     let totalExpenses = 0;
-    let incomeAmount = parseFloat( income.value);
+    let incomeAmount = parseFloat(income.value);
+
     let incomeValited = inputValidation(incomeAmount);
-    if(!incomeValited){
+    if (!incomeValited) {
         return;
     }
-    for (let perexpense of expenses) {
-        let perexpenseAmount =parseFloat( perexpense.value);
-        if(!inputValidation(perexpenseAmount)){
-            return;
-        };
-        if (perexpenseAmount >= 0) {
-            totalExpenses = totalExpenses + perexpenseAmount;
+    if (incomeAmount > 0) {
+
+        for (let perexpense of expenses) {
+            let perexpenseAmount = parseFloat(perexpense.value);
+            if (perexpenseAmount >= 0) {
+                totalExpenses = totalExpenses + perexpenseAmount;
+            }
+            else {
+                warningDisplay.style.display = 'block'
+                targetName = perexpense.parentNode.childNodes[3].id + ", " + targetName;
+                warningDisplay.innerHTML = targetName + "field  should be a positive number";
+            }
+            debugger;
+            if (!inputValidation(perexpenseAmount)) {
+                return;
+            };
         }
-        else {
-            targetName = perexpense.parentNode.childNodes[3].id + ", " + targetName;
-            warningDisplay.innerHTML = targetName + "field  should be a positive number";
-        }
+    }
+    else {
+        warningDisplay.style.display = 'block'
+        warningDisplay.innerText = "Income should be positive";
+        clearWarningDisplay();
+        return;
     }
     if (incomeAmount >= totalExpenses) {
         balance = incomeAmount - totalExpenses;
@@ -54,57 +64,67 @@ expenseBtn.addEventListener('click', function (e) {
         savingCalculation();//if income changes need to calculate savings again
     }
     else {
+        warningDisplay.style.display = 'block'
         warningDisplay.innerText = "Your income can't be less than your expenditure"
     }
 })
 
 
 
-
-
 //event handler for saving button
 saveBtn.addEventListener('click', function () {
-    setTimeout(() => {
-        warningDisplay.innerHTML = "";
-    }, 4000);
-    savingCalculation();
+    const savePercent = parseFloat(save.value);
+    clearWarningDisplay();
+    if (!inputValidation(savePercent)) {
+        return;
+    }
+    savingCalculation(savePercent);
 })
 
 
 //saving calculation function
-function savingCalculation() {
-    const savePercent = parseFloat(save.value);
-    if(savePercent<0){
+function savingCalculation(savePercent) {
+
+    if (savePercent < 0) {
         warningDisplay.innerText = "Percent Value should be positive number";
-        return
-    }
-    else if(!inputValidation(savePercent)){
         return;
     }
     savingAmount = balance * (savePercent / 100);
     remainBalance = balance - savingAmount;
     if (!isNaN(savingAmount) && !isNaN(remainBalance)) {
-        updateDisplay();
-    }
+        if (balance >= savingAmount) {
 
+            updateDisplay();
+        }
+        else {
+            warningDisplay.style.display = 'block';
+            warningDisplay.innerHTML = "You can't save more than your current Balance";
+            return;
+        }
+    }
 }
 
 function updateDisplay() {
     savingAmountDisplay.innerHTML = savingAmount.toFixed(2);
     remainigBalanceDisplay.innerText = remainBalance.toFixed(2);
-    
-}
 
+}
 
 //input validation function
 function inputValidation(number) {
-    console.log(number);
-    
-    if(isNaN(number)){
+    if (isNaN(number)) {
+        warningDisplay.style.display = 'block';
         warningDisplay.innerHTML = `"Input should not be empty or any character or any other expression"  <br/> "other than number from 0 to 9"`;
         return false;
     }
-    else{
+    else {
         return true;
     }
+}
+
+function clearWarningDisplay() {
+    setTimeout(() => {
+        warningDisplay.innerHTML = "";
+        warningDisplay.style.display = 'none';
+    }, 4000);
 }

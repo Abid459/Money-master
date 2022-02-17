@@ -12,7 +12,7 @@ section {
 }
 
 body {
-    background-image: linear-gradient(to right,rgb(27, 4, 70), rgb(0, 0, 0));
+    background-image: linear-gradient(to right, rgb(27, 4, 70), rgb(0, 0, 0));
     /* background: rgb(0, 72, 75); */
 }
 
@@ -27,10 +27,12 @@ h3 {
     font-size: 1.6rem;
     margin: 20px 0;
 }
-h4{
+
+h4 {
     font-size: 1.5rem;
 }
-span{
+
+span {
     color: aqua;
 }
 
@@ -50,12 +52,18 @@ p {
 }
 
 /* ===========gloabl css end=========== */
-.warning-display{
-    padding:10px 30px;
-    background: rgb(129, 7, 7);
+.warning-display {
+    padding: 10px 30px;
+    background: rgb(49, 49, 49);
     text-align: center;
+    border-radius: 20px;
+    position: absolute;
+    bottom: 200px;
+    display: none;
     /* margin-top: 90px; */
+    /* margin-top: 30px; */
 }
+
 header h2 {
     text-align: center;
     padding: 30px 0;
@@ -79,6 +87,7 @@ header h2 {
     position: relative;
     /* background: rgb(107, 0, 0); */
 }
+
 label {
     font-size: 1.4rem;
     position: absolute;
@@ -86,10 +95,13 @@ label {
     /* text-align: right; */
     top: 15px
 }
-.rent-label, .food-label{
+
+.rent-label,
+.food-label {
     /* color: black; */
-    left:-50px
+    left: -50px
 }
+
 input {
     padding: 10px;
     outline: 0;
@@ -101,6 +113,7 @@ input {
     /* flex-direction: row; */
     /* align-self: flex-start; */
 }
+
 .form-wrapper {
     text-align: center;
     /* background: #000; */
@@ -112,14 +125,16 @@ input {
     margin: 30px 0;
 }
 
-.savings p{
+.savings p {
     display: inline-block;
     margin: 0 10px;
     overflow: hidden;
 }
-.btn-calc{
+
+.btn-calc {
     margin-bottom: 20px;
 }
+
 #save {
     /* padding: 0; */
     width: 150px;
